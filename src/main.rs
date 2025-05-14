@@ -8,13 +8,19 @@ use std::{fs, thread};
 
 fn main() {
     let stdout = if fs::exists("/tmp/rs-daemon-spike.log").unwrap() {
-        fs::File::options().append(true).open("/tmp/rs-daemon-spike.log").unwrap()
-    }  else {
+        fs::File::options()
+            .append(true)
+            .open("/tmp/rs-daemon-spike.log")
+            .unwrap()
+    } else {
         fs::File::create("/tmp/rs-daemon-spike.log").unwrap()
     };
     let stderr = if fs::exists("/tmp/rs-daemon-spike.err").unwrap() {
-        fs::File::options().append(true).open("/tmp/rs-daemon-spike.err").unwrap()
-    }  else {
+        fs::File::options()
+            .append(true)
+            .open("/tmp/rs-daemon-spike.err")
+            .unwrap()
+    } else {
         fs::File::create("/tmp/rs-daemon-spike.err").unwrap()
     };
 
